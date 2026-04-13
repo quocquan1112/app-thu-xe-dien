@@ -120,6 +120,7 @@ except:
     m_cols = 3
 
 font_size_mobile = max(10, int(42 / m_cols))
+button_vw = f"calc((100vw - 8px - {(m_cols-1)*2}px) / {m_cols})"
 
 st.markdown(f"""
 <style>
@@ -163,20 +164,21 @@ st.markdown(f"""
     }}
     @media (max-width: 575px) {{
         .block-container {{
-            padding-left: 0.1rem !important;
-            padding-right: 0.1rem !important;
+            padding: 4px !important;
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
         }}
         div[data-testid="stHorizontalBlock"] {{
             display: flex !important;
             flex-wrap: nowrap !important;
             gap: 2px !important;
-            width: 100% !important;
-            overflow: hidden !important;
+            width: 100vw !important;
         }}
         div[data-testid="column"] {{
-            flex: 1 1 0% !important;
-            width: 0 !important;
-            min-width: 0 !important;
+            width: {button_vw} !important;
+            min-width: {button_vw} !important;
+            max-width: {button_vw} !important;
+            flex: 0 0 {button_vw} !important;
             padding: 0 !important;
             margin: 0 !important;
             display: flex;
@@ -189,25 +191,24 @@ st.markdown(f"""
             margin: 0 !important;
         }}
         .element-container, .stElementContainer {{
-            margin-bottom: 0px !important;
-            padding-bottom: 0px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
         }}
         div[data-testid="stButton"] {{
             width: 100% !important;
             display: block !important;
             padding: 0 !important;
             margin: 0 !important;
-            min-width: 0 !important;
         }}
         div[data-testid="stButton"] > button {{
-            width: 100% !important;
-            aspect-ratio: 1 / 1 !important;
-            height: auto !important;
+            width: {button_vw} !important;
+            height: {button_vw} !important;
+            max-width: {button_vw} !important;
+            max-height: {button_vw} !important;
             padding: 2px !important;
             margin: 0 !important;
             border-radius: 6px !important;
-            min-width: 0 !important;
-            max-width: 100% !important;
             display: flex;
             flex-direction: column;
             align-items: center;

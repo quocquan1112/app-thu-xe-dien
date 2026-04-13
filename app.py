@@ -151,14 +151,21 @@ st.markdown("""
     }
     @media (max-width: 575px) {
         div[data-testid="column"] {
-            width: auto !important;
-            flex: 1 1 auto !important;
+            flex: 1 1 0% !important;
+            width: 100% !important;
             min-width: 0 !important;
-            padding: 0px 3px !important;
+            padding: 0px 2px !important;
         }
         div[data-testid="stHorizontalBlock"] {
             flex-wrap: nowrap !important;
             gap: 2px !important;
+            overflow-x: hidden !important;
+        }
+        div[data-testid="stButton"] > button {
+            font-size: 13px !important;
+            line-height: 1.3 !important;
+            height: 95px !important;
+            padding: 1px !important;
         }
     }
 </style>

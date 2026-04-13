@@ -163,25 +163,30 @@ st.markdown(f"""
     }}
     @media (max-width: 575px) {{
         .block-container {{
-            padding-left: 0.2rem !important;
-            padding-right: 0.2rem !important;
+            padding-left: 0.1rem !important;
+            padding-right: 0.1rem !important;
         }}
         div[data-testid="stHorizontalBlock"] {{
-            display: grid !important;
-            grid-template-columns: repeat({m_cols}, 1fr) !important;
+            display: flex !important;
+            flex-wrap: nowrap !important;
             gap: 2px !important;
             width: 100% !important;
+            overflow: hidden !important;
         }}
         div[data-testid="column"] {{
-            width: 100% !important;
+            flex: 1 1 0% !important;
+            width: 0 !important;
             min-width: 0 !important;
             padding: 0 !important;
+            margin: 0 !important;
             display: flex;
             flex-direction: column !important;
             gap: 2px !important;
         }}
         div[data-testid="stVerticalBlock"] {{
             gap: 2px !important;
+            padding: 0 !important;
+            margin: 0 !important;
         }}
         .element-container, .stElementContainer {{
             margin-bottom: 0px !important;
@@ -192,6 +197,7 @@ st.markdown(f"""
             display: block !important;
             padding: 0 !important;
             margin: 0 !important;
+            min-width: 0 !important;
         }}
         div[data-testid="stButton"] > button {{
             width: 100% !important;
@@ -200,10 +206,18 @@ st.markdown(f"""
             padding: 2px !important;
             margin: 0 !important;
             border-radius: 6px !important;
+            min-width: 0 !important;
+            max-width: 100% !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }}
         div[data-testid="stButton"] > button p {{
             font-size: {font_size_mobile}px !important;
             line-height: 1.1 !important;
+            margin: 0 !important;
+            width: 100%;
         }}
     }}
 </style>

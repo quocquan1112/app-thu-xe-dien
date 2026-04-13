@@ -554,22 +554,63 @@ with tab_stats:
         st.info("Chưa có dữ liệu lịch sử.")
     else:
         df_hist = pd.DataFrame(history_data)
-        df_hist["start_time_str"] = pd.to_datetime(df_hist["start_time"], unit='s').dt.strftime('%Y-%m-%d %H:%M:%S')
-        df_hist["end_time_str"] = pd.to_datetime(df_hist["end_time"], unit='s').dt.strftime('%Y-%m-%d %H:%M:%S')
-        df_hist["ngày"] = pd.to_datetime(df_hist["start_time"], unit='s').dt.strftime('%Y-%m-%d')
+        # Sắp xếp mới nhất lên trên
+        df_hist = df_hist.sort_values(by="start_time", ascending=False).reset_index(drop=True)
         
-        total_rev = df_hist["total_paid"].sum()
-        total_runs = len(df_hist)
+        df_hist["start_time_str"] = pd.to_datetime(df_hist["start_time"], unit='s').dt.strftime('%d/%m/%Y %H:%M:%S')
+        df_hist["end_time_str"] = pd.to_datetime(df_hist["end_time"], unit='s').dt.strftime('%d/%m/%Y %H:%M:%S')
+        df_hist["ngày"] = pd.to_datetime(df_hist["start_time"], unit='s').dt.strftime('%d/%m/%Y')
+        df_hist["tháng"] = pd.to_datetime(df_hist["start_time"], unit='s').dt.strftime('%m/%Y')
+        
+        st.subheader("Tổng Quan")
+        view_mode = st.radio("Chế độ xem", ["Toàn bộ", "Theo Ngày", "Theo Tháng"], horizontal=True)
+        
+        # Phần lọc dữ liệu
+        if view_mode == "Theo Ngày":
+            available_days = df_hist["ngày"].unique()
+            selected_period = st.selectbox("Chọn ngày", available_days)
+            filtered_df = df_hist[df_hist["ngày"] == selected_period]
+        elif view_mode == "Theo Tháng":
+            available_months = df_hist["tháng"].unique()
+            selected_period = st.selectbox("Chọn tháng", available_months)
+            filtered_df = df_hist[df_hist["tháng"] == selected_period]
+        else:
+            filtered_df = df_hist
+            
+        total_rev = filtered_df["total_paid"].sum()
+        total_runs = len(filtered_df)
         
         c1, c2 = st.columns(2)
-        c1.metric("Tổng doanh thu", f"{total_rev:,.0f} VNĐ")
-        c2.metric("Tổng số lượt thuê", f"{total_runs} lượt")
+        c1.metric(f"Doanh thu ({view_mode})", f"{total_rev:,.0f} đ")
+        c2.metric(f"Lượt thuê ({view_mode})", f"{total_runs} lượt")
         
-        st.subheader("Doanh thu theo ngày")
-        daily_rev = df_hist.groupby("ngày")["total_paid"].sum().reset_index()
-        st.bar_chart(daily_rev.set_index("ngày"))
+        if view_mode == "Toàn bộ":
+            st.subheader("Biểu đồ doanh thu (Theo Ngày)")
+            # Vẽ biểu đồ gộp theo ngày dựa trên toàn bộ
+            chart_data = df_hist.groupby("ngày")["total_paid"].sum().reset_index()
+            st.bar_chart(chart_data.set_index("ngày"))
+        elif view_mode == "Theo Tháng":
+            st.subheader(f"Biểu đồ doanh thu tháng {selected_period}")
+            chart_data = filtered_df.groupby("ngày")["total_paid"].sum().reset_index()
+            st.bar_chart(chart_data.set_index("ngày"))
+            
+        st.subheader("Chi tiết lịch sử (Mới nhất ở trên)")
+        if "note" not in filtered_df.columns:
+            filtered_df["note"] = ""
+            
+        display_cols = ["car_name", "type", "start_time_str", "end_time_str", "total_minutes", "total_paid", "note"]
+        rename_cols = {
+            "car_name": "Tên xe", 
+            "type": "Loại", 
+            "start_time_str": "Bắt đầu", 
+            "end_time_str": "Kết thúc", 
+            "total_minutes": "Số Phút", 
+            "total_paid": "Thành tiền", 
+            "note": "Ghi chú"
+        }
         
-        st.subheader("Chi tiết lịch sử")
-        if "note" not in df_hist.columns:
-            df_hist["note"] = ""
-        st.dataframe(df_hist[["id", "car_name", "type", "start_time_str", "end_time_str", "total_minutes", "total_paid", "note"]].fillna(""))
+        st.dataframe(
+            filtered_df[display_cols].fillna("").rename(columns=rename_cols), 
+            use_container_width=True,
+            hide_index=True
+        )

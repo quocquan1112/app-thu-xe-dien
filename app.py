@@ -113,16 +113,16 @@ def update_history():
 
 st.set_page_config(page_title="Quản Lý Thuê Xe Điện", layout="wide" if st.session_state["config"].get("display_mode", "📱 Điện thoại") == "💻 Máy tính" else "centered")
 
-    m_cols = st.session_state["config"].get("mobile_columns", 3)
-    try:
-        m_cols = int(m_cols)
-    except:
-        m_cols = 3
-    
-    font_size_mobile = max(9, int(38 / m_cols))
-    
-    st.markdown(f"""
-    <style>
+m_cols = st.session_state["config"].get("mobile_columns", 3)
+try:
+    m_cols = int(m_cols)
+except:
+    m_cols = 3
+
+font_size_mobile = max(9, int(38 / m_cols))
+
+st.markdown(f"""
+<style>
         div[data-testid="stButton"] > button {{
             height: 120px !important;
             width: 100% !important;

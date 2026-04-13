@@ -113,67 +113,88 @@ def update_history():
 
 st.set_page_config(page_title="Quản Lý Thuê Xe Điện", layout="wide" if st.session_state["config"].get("display_mode", "📱 Điện thoại") == "💻 Máy tính" else "centered")
 
-m_cols = st.session_state["config"].get("mobile_columns", 3)
-st.markdown(f"""
-<style>
-    div[data-testid="stButton"] > button {{
-        height: 120px !important;
-        width: 100% !important;
-        white-space: pre-wrap !important;
-        word-wrap: break-word;
-        font-size: 16px !important;
-        line-height: 1.6 !important;
-        border-radius: 12px !important;
-        padding: 5px !important;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        transition: all 0.2s ease-in-out;
-        border: 1px solid #e0e0e0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }}
-    div[data-testid="stButton"] > button:hover {{
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }}
-    div[data-testid="stButton"] > button:active {{
-        transform: scale(0.98);
-    }}
-    div[data-testid="stButton"] > button:has(div p:contains("🚨")) {{
-        background-color: #ffe6e6 !important;
-        color: #d32f2f !important;
-        border-color: #d32f2f !important;
-        animation: flash 1s infinite alternate;
-    }}
-    @keyframes flash {{
-        from {{ background-color: #3b0000; }}
-        to {{ background-color: #ff3333; }}
-    }}
-    @media (max-width: 575px) {{
-        div[data-testid="stHorizontalBlock"] {{
-            display: grid !important;
-            grid-template-columns: repeat({m_cols}, 1fr) !important;
-            gap: 6px !important;
-            width: 100% !important;
-        }}
-        div[data-testid="column"] {{
-            width: 100% !important;
-            min-width: 0 !important;
-            padding: 0 !important;
-        }}
+    m_cols = st.session_state["config"].get("mobile_columns", 3)
+    try:
+        m_cols = int(m_cols)
+    except:
+        m_cols = 3
+    
+    font_size_mobile = max(9, int(38 / m_cols))
+    
+    st.markdown(f"""
+    <style>
         div[data-testid="stButton"] > button {{
+            height: 120px !important;
             width: 100% !important;
-            aspect-ratio: 1 / 1 !important;
-            height: auto !important;
-            font-size: 12px !important;
-            padding: 2px !important;
-            margin: 0 !important;
-            line-height: 1.3 !important;
+            white-space: pre-wrap !important;
+            word-wrap: break-word;
+            border-radius: 12px !important;
+            padding: 5px !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.2s ease-in-out;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }}
-    }}
-</style>
-""", unsafe_allow_html=True)
+        div[data-testid="stButton"] > button p {{
+            font-size: 15px !important;
+            line-height: 1.5 !important;
+            margin: 0 !important;
+            text-align: center;
+        }}
+        div[data-testid="stButton"] > button:hover {{
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }}
+        div[data-testid="stButton"] > button:active {{
+            transform: scale(0.98);
+        }}
+        div[data-testid="stButton"] > button:has(div p:contains("🚨")) {{
+            background-color: #ffe6e6 !important;
+            color: #d32f2f !important;
+            border-color: #d32f2f !important;
+            animation: flash 1s infinite alternate;
+        }}
+        @keyframes flash {{
+            from {{ background-color: #3b0000; }}
+            to {{ background-color: #ff3333; }}
+        }}
+        @media (max-width: 575px) {{
+            div[data-testid="stHorizontalBlock"] {{
+                display: grid !important;
+                grid-template-columns: repeat({m_cols}, 1fr) !important;
+                gap: 2px !important;
+                width: 100% !important;
+            }}
+            div[data-testid="column"] {{
+                width: 100% !important;
+                min-width: 0 !important;
+                padding: 0 !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }}
+            div[data-testid="stButton"] {{
+                width: 100% !important;
+                display: flex;
+            }}
+            div[data-testid="stButton"] > button {{
+                width: 100% !important;
+                aspect-ratio: 1 / 1 !important;
+                height: auto !important;
+                padding: 1px !important;
+                margin: 0 !important;
+                border-radius: 8px !important;
+            }}
+            div[data-testid="stButton"] > button p {{
+                font-size: {font_size_mobile}px !important;
+                line-height: 1.2 !important;
+            }}
+        }}
+    </style>
+    """, unsafe_allow_html=True)
 
 @st.dialog("Thao tác xe")
 def car_action_dialog(car):

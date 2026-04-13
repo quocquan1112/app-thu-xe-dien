@@ -151,8 +151,8 @@ st.markdown("""
     }
     @media (max-width: 575px) {
         div[data-testid="column"] {
-            flex: 1 1 0% !important;
-            width: 100% !important;
+            flex: 1 1 0 !important;
+            width: 0 !important;
             min-width: 0 !important;
             padding: 0px 2px !important;
         }

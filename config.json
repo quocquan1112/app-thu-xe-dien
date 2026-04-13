@@ -1,0 +1,124 @@
+{
+    "play_area_name": "XE ĐIỆN BA TƠ",
+    "price_per_minute": 1000,
+    "categories": [
+        "Trả sau",
+        "Trả trước"
+    ],
+    "cars": [
+        {
+            "id": "01",
+            "name": "Xe 01",
+            "category": "Trả sau"
+        },
+        {
+            "id": "02",
+            "name": "Xe 02",
+            "category": "Trả sau"
+        },
+        {
+            "id": "03",
+            "name": "Xe 03",
+            "category": "Trả sau"
+        },
+        {
+            "id": "04",
+            "name": "Xe 04",
+            "category": "Trả sau"
+        },
+        {
+            "id": "05",
+            "name": "Xe 05",
+            "category": "Trả sau"
+        },
+        {
+            "id": "06",
+            "name": "Xe 06",
+            "category": "Trả sau"
+        },
+        {
+            "id": "07",
+            "name": "Xe 07",
+            "category": "Trả sau"
+        },
+        {
+            "id": "08",
+            "name": "Xe 08",
+            "category": "Trả sau"
+        },
+        {
+            "id": "09",
+            "name": "Xe 09",
+            "category": "Trả sau"
+        },
+        {
+            "id": "10",
+            "name": "Xe 10",
+            "category": "Trả sau"
+        },
+        {
+            "id": "11",
+            "name": "Xe 11",
+            "category": "Trả sau"
+        },
+        {
+            "id": "12",
+            "name": "Xe 12",
+            "category": "Trả sau"
+        },
+        {
+            "id": "13",
+            "name": "Xe 13",
+            "category": "Trả sau"
+        },
+        {
+            "id": "14",
+            "name": "Xe 14",
+            "category": "Trả sau"
+        },
+        {
+            "id": "15",
+            "name": "Xe 15",
+            "category": "Trả sau"
+        },
+        {
+            "id": "16",
+            "name": "Xe 16",
+            "category": "Trả trước"
+        },
+        {
+            "id": "17",
+            "name": "Xe 17",
+            "category": "Trả trước"
+        },
+        {
+            "id": "18",
+            "name": "Xe 18",
+            "category": "Trả trước"
+        },
+        {
+            "id": "19",
+            "name": "Xe 19",
+            "category": "Trả trước"
+        },
+        {
+            "id": "20",
+            "name": "Xe 20",
+            "category": "Trả trước"
+        }
+    ],
+    "columns_per_row": 10,
+    "mobile_columns": 5,
+    "desktop_columns": 5,
+    "display_mode": "📱 Điện thoại",
+    "categories_detail": [
+        {
+            "name": "Trả sau",
+            "type": "Trả sau"
+        },
+        {
+            "name": "Trả trước",
+            "type": "Trả trước"
+        }
+    ]
+}

@@ -1,0 +1,123 @@
+[
+    {
+        "id": "c579c59c-2bd6-45ee-a168-2f6066cca53d",
+        "car_id": "03",
+        "car_name": "Xe 03",
+        "start_time": 1776057986,
+        "end_time": 1776058064,
+        "total_minutes": 1.3,
+        "total_paid": 1300.0,
+        "type": "Trả sau",
+        "note": ""
+    },
+    {
+        "id": "9ff77551-af27-4db3-9a7d-bc9095d0af85",
+        "car_id": "02",
+        "car_name": "Xe 02",
+        "start_time": 1776057977,
+        "end_time": 1776058317,
+        "total_minutes": 5.7,
+        "total_paid": 0,
+        "note": "Gộp nợ 5667.0 qua xe 01",
+        "type": "Trả sau"
+    },
+    {
+        "id": "081bcb86-8e57-4b95-8f80-6a2e5a9410c2",
+        "car_id": "15",
+        "car_name": "Xe 15",
+        "start_time": 1776058357,
+        "end_time": 1776059682,
+        "total_minutes": 22.1,
+        "total_paid": 22083.0,
+        "type": "Trả trước",
+        "note": ""
+    },
+    {
+        "id": "dde7f4e4-cf4d-4dbd-91d2-fc2c4ca84956",
+        "car_id": "11",
+        "car_name": "Xe 11",
+        "start_time": 1776058033,
+        "end_time": 1776059695,
+        "total_minutes": 27.7,
+        "total_paid": 27700.0,
+        "type": "Trả trước",
+        "note": ""
+    },
+    {
+        "id": "82b42c46-f61a-4906-8c67-74838c7f5df3",
+        "car_id": "01",
+        "car_name": "Xe 01",
+        "start_time": 1776057959,
+        "end_time": 1776076077,
+        "total_minutes": 302.0,
+        "total_paid": 307633.0,
+        "type": "Trả sau",
+        "note": ""
+    },
+    {
+        "id": "2856dd57-e808-4a4c-8643-d7bfb275ad9a",
+        "car_id": "12",
+        "car_name": "Xe 12",
+        "start_time": 1776059676,
+        "end_time": 1776076086,
+        "total_minutes": 273.5,
+        "total_paid": 273500.0,
+        "type": "Trả trước",
+        "note": ""
+    },
+    {
+        "id": "bfbb9cc6-3532-49dd-b628-99ac8a95ac33",
+        "car_id": "04",
+        "car_name": "Xe 04",
+        "start_time": 1776059657,
+        "end_time": 1776076254,
+        "total_minutes": 276.6,
+        "total_paid": 276617.0,
+        "type": "Trả sau",
+        "note": ""
+    },
+    {
+        "id": "03fc9f27-8e74-4ba4-ac32-afd5ea32b264",
+        "car_id": "11",
+        "car_name": "Xe 11",
+        "start_time": 1776076259,
+        "end_time": 1776076625,
+        "total_minutes": 6.1,
+        "total_paid": 20000,
+        "type": "Trả trước",
+        "note": ""
+    },
+    {
+        "id": "114d2de7-bb99-400d-9ba1-fa87cf8ca4c1",
+        "car_id": "01",
+        "car_name": "Xe 01",
+        "start_time": 1776076321,
+        "end_time": 1776076656,
+        "total_minutes": 5.6,
+        "total_paid": 0,
+        "note": "Gộp nợ 6000 qua xe 02",
+        "type": "Trả sau"
+    },
+    {
+        "id": "8f55d151-7f56-44e6-877c-b3e3036ecd25",
+        "car_id": "11",
+        "car_name": "Xe 11",
+        "start_time": 1776076629,
+        "end_time": 1776076780,
+        "total_minutes": 2.5,
+        "total_paid": 3000,
+        "type": "Trả sau",
+        "note": ""
+    },
+    {
+        "id": "c94eff39-bb34-4c49-9492-866067cf020f",
+        "car_id": "02",
+        "car_name": "Xe 02",
+        "start_time": 1776076554,
+        "end_time": 1776078043,
+        "total_minutes": 24.8,
+        "total_paid": 31000,
+        "type": "Trả sau",
+        "note": ""
+    }
+]

@@ -1,0 +1,20 @@
+{
+    "16": {
+        "start_time": 1776077490,
+        "type": "Trả trước",
+        "billing_type": "Trả trước",
+        "prepaid_amount": 10000,
+        "max_minutes": 10.0,
+        "merged_into": null,
+        "merged_cost": 0,
+        "status": "running"
+    },
+    "01": {
+        "start_time": 1776078040,
+        "type": "Trả sau",
+        "billing_type": "Trả sau",
+        "merged_into": null,
+        "merged_cost": 0,
+        "status": "running"
+    }
+}

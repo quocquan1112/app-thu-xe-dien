@@ -113,9 +113,10 @@ def update_history():
 
 st.set_page_config(page_title="Quản Lý Thuê Xe Điện", layout="wide" if st.session_state["config"].get("display_mode", "📱 Điện thoại") == "💻 Máy tính" else "centered")
 
-st.markdown("""
+m_cols = st.session_state["config"].get("mobile_columns", 3)
+st.markdown(f"""
 <style>
-    div[data-testid="stButton"] > button {
+    div[data-testid="stButton"] > button {{
         height: 120px !important;
         width: 100% !important;
         white-space: pre-wrap !important;
@@ -131,43 +132,46 @@ st.markdown("""
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }
-    div[data-testid="stButton"] > button:hover {
+    }}
+    div[data-testid="stButton"] > button:hover {{
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    div[data-testid="stButton"] > button:active {
+    }}
+    div[data-testid="stButton"] > button:active {{
         transform: scale(0.98);
-    }
-    div[data-testid="stButton"] > button:has(div p:contains("🚨")) {
+    }}
+    div[data-testid="stButton"] > button:has(div p:contains("🚨")) {{
         background-color: #ffe6e6 !important;
         color: #d32f2f !important;
         border-color: #d32f2f !important;
         animation: flash 1s infinite alternate;
-    }
-    @keyframes flash {
-        from { background-color: #3b0000; }
-        to { background-color: #ff3333; }
-    }
-    @media (max-width: 575px) {
-        div[data-testid="column"] {
-            flex: 1 1 0 !important;
-            width: 0 !important;
+    }}
+    @keyframes flash {{
+        from {{ background-color: #3b0000; }}
+        to {{ background-color: #ff3333; }}
+    }}
+    @media (max-width: 575px) {{
+        div[data-testid="stHorizontalBlock"] {{
+            display: grid !important;
+            grid-template-columns: repeat({m_cols}, 1fr) !important;
+            gap: 6px !important;
+            width: 100% !important;
+        }}
+        div[data-testid="column"] {{
+            width: 100% !important;
             min-width: 0 !important;
-            padding: 0px 2px !important;
-        }
-        div[data-testid="stHorizontalBlock"] {
-            flex-wrap: nowrap !important;
-            gap: 2px !important;
-            overflow-x: hidden !important;
-        }
-        div[data-testid="stButton"] > button {
-            font-size: 13px !important;
+            padding: 0 !important;
+        }}
+        div[data-testid="stButton"] > button {{
+            width: 100% !important;
+            aspect-ratio: 1 / 1 !important;
+            height: auto !important;
+            font-size: 12px !important;
+            padding: 2px !important;
+            margin: 0 !important;
             line-height: 1.3 !important;
-            height: 95px !important;
-            padding: 1px !important;
-        }
-    }
+        }}
+    }}
 </style>
 """, unsafe_allow_html=True)
 

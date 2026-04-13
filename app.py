@@ -165,47 +165,51 @@ st.markdown(f"""
     @media (max-width: 575px) {{
         .block-container {{
             padding: 4px !important;
+            padding-top: 1rem !important;
             max-width: 100vw !important;
             overflow-x: hidden !important;
         }}
         div[data-testid="stHorizontalBlock"] {{
-            display: flex !important;
-            flex-wrap: nowrap !important;
+            display: grid !important;
+            grid-template-columns: repeat({m_cols}, 1fr) !important;
             gap: 2px !important;
-            width: 100vw !important;
+            width: 100% !important;
         }}
         div[data-testid="column"] {{
-            width: {button_vw} !important;
-            min-width: {button_vw} !important;
-            max-width: {button_vw} !important;
-            flex: 0 0 {button_vw} !important;
+            width: 100% !important;
+            min-width: 100% !important;
             padding: 0 !important;
             margin: 0 !important;
             display: flex;
             flex-direction: column !important;
             gap: 2px !important;
+            align-items: center;
         }}
         div[data-testid="stVerticalBlock"] {{
             gap: 2px !important;
             padding: 0 !important;
             margin: 0 !important;
+            width: 100% !important;
         }}
         .element-container, .stElementContainer {{
             margin: 0 !important;
             padding: 0 !important;
             width: 100% !important;
+            display: flex;
+            justify-content: center;
         }}
         div[data-testid="stButton"] {{
             width: 100% !important;
-            display: block !important;
+            display: flex !important;
+            justify-content: center !important;
             padding: 0 !important;
             margin: 0 !important;
         }}
         div[data-testid="stButton"] > button {{
             width: {button_vw} !important;
             height: {button_vw} !important;
+            min-width: {button_vw} !important;
             max-width: {button_vw} !important;
-            max-height: {button_vw} !important;
             padding: 2px !important;
             margin: 0 !important;
             border-radius: 6px !important;
